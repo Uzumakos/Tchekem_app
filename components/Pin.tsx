@@ -7,11 +7,12 @@ import { useNavigation } from "@react-navigation/native";
 
 
 const Pin = (props: { image: any; title: any; pini: any;}) => {
-    const {image, title} = props.pini;
+    const {id, image, title} = props.pini;
 
     const [ratio, setRatio] = useState(1);
+    const navigation = useNavigation();
     
-    const onLike = () => {};
+    
 
     useEffect(() => {
         if (image) {
@@ -19,9 +20,14 @@ const Pin = (props: { image: any; title: any; pini: any;}) => {
         }
     }, [image]);
     
+    const onLike = () => {};
+
+    const goToPinPage = () => {
+      navigation.navigate("Pin", { id });
+    }
 
     return (
-      <View style={styles.pin}>
+      <Pressable onPress={goToPinPage} style={styles.pin}>
         <View>
          <Image source={{ uri: image}}
             style={[styles.image, { aspectRatio: ratio }]}    
@@ -35,7 +41,7 @@ const Pin = (props: { image: any; title: any; pini: any;}) => {
 
       
       <Text style={styles.title} numberOfLines={2}>{title}</Text>
-      </View>
+      </Pressable>
     );
 };
 
