@@ -34,7 +34,7 @@ const Pin = (props: { image: any; title: any; pini: any;}) => {
      
 
       
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title} numberOfLines={2}>{title}</Text>
       </View>
     );
 };
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     image: {
       width: "100%",
-      borderRadius: 25,
+      borderRadius: 15,
     },
     heartBtn: {
         backgroundColor: "#D3CFD4",
