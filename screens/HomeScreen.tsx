@@ -4,26 +4,12 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import Pin from '../components/Pin';
 import pins from '../assets/data/pins';
+import MasonryList from '../components/MasonryList';
 
 
-export default function HomeScreen({ navigation, }: RootTabScreenProps<'TabOne'>) {
+export default function HomeScreen() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {/*1rst column pou tchek yo */}
-      <View style={styles.column}>
-      
-        {pins.filter((item, index) => index % 2 === 0).map(pini => <Pin pini={pini} image={undefined} title={undefined} />)}
-      </View>
-      {/*2nd column pou tchek yo */}
-      <View style={styles.column}>
-
-        {pins.filter((item, index) => index % 2 === 1).map(pini => <Pin pini={pini} image={undefined} title={undefined} />)}
-      </View>
-
-      </View>
-    </ScrollView>
-  
+    <MasonryList pins={pins} />
   );
 }
 
